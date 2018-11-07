@@ -28,12 +28,11 @@ $(function() {
          * in the allFeeds object and ensures it has a URL defined
          */
          it("has a URL and the URL is defined",function() {
-            for (var i=0; i < allFeeds.length; i++) {
-                expect(allFeeds[i].url).toBeDefined();
-
-        // and that the URL is not empty.
-                expect(allFeeds[i].url.length).not.toBe(0);
-            }
+            allFeeds.forEach(function(e){
+                expect(e.url).toBeDefined();
+            // and that the URL is not empty.
+                expect(e.url.length).not.toBe(0);
+            });
          });
 
 
@@ -87,7 +86,8 @@ $(function() {
 
          // there is at least a single .entry element within the .feed container.
          it("is loaded", function(){
-            expect($('.feed .entry')).toBeDefined();
+            expect($('.feed').length).toBeGreaterThan(0);
+            expect($('.entry').length).toBeGreaterThan(0);
          });
 
     });
@@ -98,22 +98,22 @@ $(function() {
         /* a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          */
-         var FirstFeed;
-         var SecondFeed;
+         var firstFeed;
+         var secondFeed;
 
          beforeEach(function(done){
             loadFeed(0,function(){
-                FirstFeed = $('.feed').html();
+                firstFeed = $('.feed').html();
 
                 loadFeed(1,function(){
-                    SecondFeed = $('.feed').html();
+                    secondFeed = $('.feed').html();
                     done();
                 });
             });
          });
 
          it("actually changes",function(){
-             expect(FirstFeed === SecondFeed).toBe(false);
+             expect(firstFeed === secondFeed).toBe(false);
          });
     });
 
