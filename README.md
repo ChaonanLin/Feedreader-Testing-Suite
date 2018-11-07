@@ -10,8 +10,8 @@ In this project, I used [Jasmine](http://jasmine.github.io/) to write a number o
 
 
 1. Test RSS Feeds are defined
-2. Test RSS has a URL and the URL is defiened
-3. Test RSS has a name and the names is defiened
+2. Test RSS has a URL and the URL is defined
+3. Test RSS has a name and the names is defined
 4. Test the menu is hidden by default
 5. Test the menu visible when clicked and hidden when clicked again
 6. Test the Initial Entries is loaded
