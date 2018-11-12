@@ -41,10 +41,10 @@ $(function() {
          * and that the name is not empty.
          */
          it("has a name and the names is defined",function() {
-            for (var i=0; i < allFeeds.length; i++) {
-                expect(allFeeds[i].name).toBeDefined();
-                expect(allFeeds[i].name.length).not.toBe(0);
-            }
+            allFeeds.forEach(function(e){
+                expect(e.name).toBeDefined();
+                expect(e.url.name).not.toBe(0);
+            });
          });
     });
 
@@ -63,7 +63,7 @@ $(function() {
          */
         it ("is visible when clicked and hidden when clicked again", function(){
             // test the menu display when clicked
-            $('.menu-icon-link').trigger('click');
+            $('.menu-icon-link').click();
             expect($('body').hasClass('menu-hidden')).toBe(false);
 
             // and does it hide when clicked again.
@@ -86,8 +86,7 @@ $(function() {
 
          // there is at least a single .entry element within the .feed container.
          it("is loaded", function(){
-            expect($('.feed').length).toBeGreaterThan(0);
-            expect($('.entry').length).toBeGreaterThan(0);
+            expect($('.feed .entry').length).toBeGreaterThan(0);
          });
 
     });
